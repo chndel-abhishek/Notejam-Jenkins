@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notejam-deployment
+spec:
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: notejam
+  template:
+    metadata:
+      labels:
+        app: notejam
+    spec:
+      containers:
+      - name: notejam-app
+        image: abhishek7868/notejam-jenkins
+        ports:
+        - containerPort: 8000
+        env:
+          - name: DATABASE_HOST
+            value: postgres-service 
+          - name: DATABASE_PORT
+            value: "5432"
+          - name: DATABASE_NAME
+            value: abhishek
+          - name: DATABASE_USER
+            value: abhishek
+          - name: DATABASE_PASSWORD
+            value: abhishek
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: notejam-app
+spec:
+  type: NodePort
+  ports:
+     - protocol: TCP
+       port: 80
+       targetPort: 8080
+  selector:
+    app: notejam
