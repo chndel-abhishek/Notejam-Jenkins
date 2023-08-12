@@ -1,19 +1,19 @@
 pipeline {
   environment {
-    dockerimagename = "bravinwasike/react-app"
+    dockerimagename = "abhishek7868/notejam-jenkins"
     dockerImage = ""
   }
   agent any
   stages {
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/AbhishekChandel1/Notejam-Jenkins.git'
+        git branch: 'main', url: 'https://github.com/AbhishekChandel1/kube.git'
       }
     }
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker.build dockerimagename
+          dockerImage = docker.build abhishek7868/notejam-jenkins
         }
       }
     }
@@ -32,7 +32,7 @@ pipeline {
     stage('Deploying React.js container to Kubernetes') {
       steps {
         script {
-          kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
+          kubernetesDeploy(configs: "postgres-deploy.yaml", "notejam-application-deploy.yaml")
         }
       }
     }
