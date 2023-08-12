@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/AbhishekChandel1/Notejam.git'
+        git 'https://github.com/AbhishekChandel1/Notejam-Jenkins.git'
       }
     }
     stage('Build image') {
