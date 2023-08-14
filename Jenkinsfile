@@ -8,7 +8,7 @@ pipeline {
     stage('Checkout Source') {
       steps {
         git branch: 'main', url: 'https://github.com/AbhishekChandel1/kube.git'
-        sh 'ls'
+        
       }
     }
     // stage('Build image') {
