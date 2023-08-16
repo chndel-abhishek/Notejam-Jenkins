@@ -14,22 +14,38 @@ spec:
     spec:
       containers:
       - name: notejam-app
-        image: abhishek7868/notejam-jenkins
+        image: abhishek7868/notejam2
         ports:
         - containerPort: 8000
         env:
-          - name: DATABASE_HOST
-            value: postgres-service 
-          - name: DATABASE_PORT
-            value: "5432"
-          - name: DATABASE_NAME
-            value: abhishek
-          - name: DATABASE_USER
-            value: abhishek
-          - name: DATABASE_PASSWORD
-            value: abhishek
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: pgsecret
+                  key: user
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pgsecret
+                  key: password
+            - name: POSTGRES_HOST
+              value: "postgres"
+            - name: DB_ENGINE
+              valueFrom: 
+                configMapKeyRef:
+                  name: postgres-configmap
+                  key: engine
+            - name: POSTGRES_DBNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-configmap
+                  key: dbname
+            - name: DB_PORT
+              valueFrom: 
+                configMapKeyRef:
+                  name: postgres-configmap
+                  key: port
 ---
-
 apiVersion: v1
 kind: Service
 metadata:

@@ -1,0 +1,7 @@
+# Use an appropriate base image for your database
+FROM postgres:latest
+
+ENV POSTGRES_DB=postgres \
+    POSTGRES_USER=postgres \
+    POSTGRES_PASSWORD=postgres
+

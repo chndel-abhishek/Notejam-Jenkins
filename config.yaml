@@ -4,5 +4,5 @@ metadata:
     name: postgres-configmap
 data:
   engine: "django.db.backends.postgresql_psycopg2"
-  dbname: "abhishek"
+  dbname: "postgres"
   port: "5432"
