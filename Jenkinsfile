@@ -18,24 +18,24 @@ pipeline {
         }
       }
     }
-    stage('Pushing Image') {
-      environment {
-               registryCredential = 'dockerhub'
-           }
-      steps{
-        script {
-          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage.push("latest")
-          }
-        }
-      }
-    }
-    stage('Deploying Notejam container to Kubernetes') {
-      steps {
-        script {
-          kubernetesDeploy(configs: "postgres-deploy.yaml", "notejam-application-deploy.yaml")
-        }
-      }
-    }
+    // stage('Pushing Image') {
+    //   environment {
+    //            registryCredential = 'dockerhub'
+    //        }
+    //   steps{
+    //     script {
+    //       docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+    //         dockerImage.push("latest")
+    //       }
+    //     }
+    //   }
+    // }
+    // stage('Deploying Notejam container to Kubernetes') {
+    //   steps {
+    //     script {
+    //       kubernetesDeploy(configs: "postgres-deploy.yaml", "notejam-application-deploy.yaml")
+    //     }
+    //   }
+    // }
   }
 }
