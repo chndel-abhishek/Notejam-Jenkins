@@ -8,7 +8,7 @@ pipeline{
         }
         stage("build"){
             steps{
-                 sh 'docker build . -t abhishek7868/notejam2'
+                 sh 'docker build -f Dockerfile.app -t abhishek7868/notejam2'
             }
         }
     }
