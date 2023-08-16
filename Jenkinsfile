@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    dockerimagename = "abhishek7868/notejam-jenkins"
+    dockerimagename = "abhishek7868/notejam2"
     dockerImage = ""
   }
   agent any
