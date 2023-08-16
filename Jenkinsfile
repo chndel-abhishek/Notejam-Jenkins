@@ -14,7 +14,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker build . abhishek7868/notejam-jenkins
+          dockerImage = docker build . abhishek7868/notejam2
         }
       }
     }
