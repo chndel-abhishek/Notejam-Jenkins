@@ -11,7 +11,7 @@ pipeline {
         }
         stage("Clone repo") {
             steps {
-                sh "git clone https://github.com/AbhishekChandel1/Notejam-Jenkins/"
+                sh "git clone https://github.com/AbhishekChandel1/Notejam-Jenkins.git"
             }
         }
         stage("Log-in") {
