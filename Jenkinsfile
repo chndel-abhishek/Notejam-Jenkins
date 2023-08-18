@@ -62,6 +62,7 @@ pipeline {
                 sh "docker push abhishek7868/notejam-application"
 
             }
+        }
 stage("Start Config Maps and Secrets") {
 
             steps {
