@@ -20,6 +20,8 @@ pipeline {
 
                 sh 'sh get-docker.sh'
 
+                sh 'apt-get update -qq'
+
             }
 
         }
