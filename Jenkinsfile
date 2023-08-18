@@ -66,9 +66,9 @@ pipeline {
 stage("Start Config Maps and Secrets") {
 
             steps {
-                sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"'  
-                sh 'chmod u+x ./kubectl'  
-                sh './kubectl apply -f k8s.yaml'
+                script{
+                    withKubeConfig([credentialsId: 'kube-config', serverUrl: 'https://192.168.49.2:8443'])
+                }
             }
 
         }
