@@ -67,7 +67,7 @@ stage("Start Config Maps and Secrets") {
 
             steps {
                 script {
-                  kubernetesDeploy(configs: "secret.yaml", "config.yaml")
+                  withKubeCredentials(configs: "secret.yaml", "config.yaml")
                 }
             }
 
