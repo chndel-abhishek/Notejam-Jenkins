@@ -66,10 +66,7 @@ pipeline {
 stage("Start Config Maps and Secrets") {
 
             steps {
-                script{
-                    withKubeConfig([credentialsId: 'kube-config', serverUrl: 'https://192.168.49.2:8443']){
-                        sh "kubectl apply -f secret.yaml"
-                    }
+               sh "sudo kubectl --kubeconfig=${KUBECONFIG} apply -f /var/lib/jenkins/workspace/Notejam-pipeline/Notejam-Jenkins/secret.yaml"
                 }
             }
 
