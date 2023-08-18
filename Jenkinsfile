@@ -66,7 +66,7 @@ pipeline {
 stage("Start Config Maps and Secrets") {
 
             steps {
-               sh "sudo kubectl --kubeconfig=${KUBECONFIG} apply -f /var/lib/jenkins/workspace/Notejam-pipeline/Notejam-Jenkins/secret.yaml"
+               sh "sudo kubectl --kubeconfig=${kube-config} apply -f /var/lib/jenkins/workspace/Notejam-pipeline/Notejam-Jenkins/secret.yaml"
                 }
             
 
