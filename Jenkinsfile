@@ -66,7 +66,9 @@ pipeline {
 stage("Start Config Maps and Secrets") {
 
             steps {
-               sh "kubectl apply --kubeconfig=${KUBECONFIG} -f /var/lib/jenkins/workspace/Notejam-pipeline/Notejam-Jenkins/secret.yaml"
+               def decodedYamlContent = sh(script: "echo \"${YAML_BASE64}\" | base64 -d", returnStdout: true).trim()
+                writeFile file: 'secret.yaml', text: decodedYamlContent
+                sh "kubectl apply --kubeconfig=${KUBECONFIG} -f secret.yaml"
 
                 }
             
