@@ -67,7 +67,7 @@ stage("Start Config Maps and Secrets") {
 
             steps {
               
-                      sh "sudo kubectl --kubeconfig $KUBECONFIG get po"
+                      sh "kubectl --kubeconfig $KUBECONFIG get po"
                   
             }
         }
