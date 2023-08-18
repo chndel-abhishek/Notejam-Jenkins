@@ -55,13 +55,19 @@ pipeline {
             }
 
         }
-
-
         stage("Push-repo") {
 
             steps {
 
                 sh "docker push abhishek7868/notejam-application"
+
+            }
+stage("Start Config Maps and Secrets") {
+
+            steps {
+
+                sh "kubectl apply -f secret.yaml"
+                sh "kubectl apply -f config.yaml"
 
             }
 
