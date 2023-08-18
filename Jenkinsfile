@@ -66,14 +66,9 @@ pipeline {
 stage("Start Config Maps and Secrets") {
 
             steps {
-               script {
-                   steps {
+              
                       sh "kubectl --kubeconfig $KUBECONFIG get po"
                   
-                    }
-
-                }
-            
             }
         }
 
