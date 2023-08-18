@@ -67,14 +67,14 @@ stage("Start Config Maps and Secrets") {
 
             steps {
                script {
-                    def decodedYamlContent = sh(script: "echo \"${YAML_BASE64}\" | base64 -d", returnStdout: true).trim()
-                    writeFile file: 'secret.yaml', text: decodedYamlContent
-                    sh "kubectl apply --kubeconfig=${KUBECONFIG} -f secret.yaml"
+                   steps {
+                      sh "kubectl --kubeconfig $KUBECONFIG get po"
+                  
                     }
 
                 }
             
-
+            }
         }
 
     }
