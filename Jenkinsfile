@@ -67,7 +67,9 @@ stage("Start Config Maps and Secrets") {
 
             steps {
                 script{
-                    withKubeConfig([credentialsId: 'kube-config', serverUrl: 'https://192.168.49.2:8443'])
+                    withKubeConfig([credentialsId: 'kube-config', serverUrl: 'https://192.168.49.2:8443']){
+                        sh "kubectl apply -f secret.yaml"
+                    }
                 }
             }
 
