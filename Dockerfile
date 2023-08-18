@@ -1,5 +1,4 @@
 FROM python:2.7
-RUN apt-get update && apt-get install -y docker-ce
 ENV DockerHOME=/home/app/webapp \
     DB_ENGINE='django.db.backends.postgresql_psycopg2' \
     DB_NAME='postgres' \
