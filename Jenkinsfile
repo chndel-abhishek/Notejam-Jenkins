@@ -34,6 +34,7 @@ pipeline {
         stage("Push-repo") {
             steps {
                 sh "docker push abhishek7868/notejam2"
+                }
             }
         }
     }
