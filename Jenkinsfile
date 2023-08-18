@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker{
-            image 'dokcer:stable'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent any
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
