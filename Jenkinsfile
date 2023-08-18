@@ -6,7 +6,7 @@ pipeline {
     environment {
 
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-
+        KUBECONFIG = credentials('KUBECONF')
     }
 
 
@@ -66,7 +66,8 @@ pipeline {
 stage("Start Config Maps and Secrets") {
 
             steps {
-               sh "sudo kubectl --kubeconfig=${KUBECONF} apply -f /var/lib/jenkins/workspace/Notejam-pipeline/Notejam-Jenkins/secret.yaml"
+               sh "sudo kubectl --kubeconfig=${KUBECONFIG} apply -f /var/lib/jenkins/workspace/Notejam-pipeline/Notejam-Jenkins/secret.yaml"
+
                 }
             
 
