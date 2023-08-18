@@ -66,10 +66,9 @@ pipeline {
 stage("Start Config Maps and Secrets") {
 
             steps {
-
-                sh "kubectl apply -f secret.yaml"
-                sh "kubectl apply -f config.yaml"
-
+                script {
+                  kubernetesDeploy(configs: "secret.yaml", "config.yaml")
+                }
             }
 
         }
