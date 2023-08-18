@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker{
+            image 'dokcer:stable'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
@@ -34,8 +39,8 @@ pipeline {
         stage("Push-repo") {
             steps {
                 sh "docker push abhishek7868/notejam2"
-                }
             }
         }
     }
+  }
 }
