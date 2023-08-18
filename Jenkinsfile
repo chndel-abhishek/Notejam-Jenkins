@@ -50,7 +50,7 @@ pipeline {
 
             steps {
 
-                sh "docker build -t abhishek7868/notejam2 Notejam-Jenkins/"
+                sh "docker build -t abhishek7868/notejam-application Notejam-Jenkins/"
 
             }
 
@@ -61,7 +61,7 @@ pipeline {
 
             steps {
 
-                sh "docker push abhishek7868/notejam2"
+                sh "docker push abhishek7868/notejam-application"
 
             }
 
