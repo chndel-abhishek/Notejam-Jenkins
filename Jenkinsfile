@@ -100,7 +100,7 @@ pipeline {
 
             steps {
               
-                      sh "kubectl get services"
+                      sh "kubectl --kubeconfig $KUBECONFIG get services"
                   
             }
         }
