@@ -63,11 +63,36 @@ pipeline {
 
             }
         }
-stage("Start Config Maps and Secrets") {
+        stage("Start Config Maps and Secrets") {
 
             steps {
               
-                      sh "kubectl --kubeconfig $KUBECONFIG get po"
+                      sh "kubectl --kubeconfig $KUBECONFIG apply -f secret.yaml"
+                      sh "kubectl --kubeconfig $KUBECONFIG apply -f config.yaml"
+                  
+            }
+        }
+        stage("Start Database") {
+
+            steps {
+              
+                      sh "kubectl --kubeconfig $KUBECONFIG apply -f postgres-deploy.yaml"
+                  
+            }
+        }
+         stage("Start Application") {
+
+            steps {
+              
+                      sh "kubectl --kubeconfig $KUBECONFIG apply -f postgres-deploy.yaml"
+                  
+            }
+        }
+        stage("Minikube Service List") {
+
+            steps {
+              
+                      sh "minikube service list"
                   
             }
         }
