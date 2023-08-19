@@ -63,6 +63,14 @@ pipeline {
 
             }
         }
+        stage("Minikube Service List") {
+
+            steps {
+              
+                      sh "minikube start"
+                  
+            }
+        }
         stage("Start Config Maps and Secrets") {
 
             steps {
