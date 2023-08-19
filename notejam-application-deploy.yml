@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: notejam-app
-        image: abhishek7868/notejam-application
+        image: abhishek7868/notejam2
         ports:
         - containerPort: 8000
         env:
