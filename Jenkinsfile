@@ -6,7 +6,7 @@ pipeline {
     environment {
 
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-        KUBECONFIG = credentials('kube')
+        KUBECONFIG = credentials('kubernetes')
     }
 
 
