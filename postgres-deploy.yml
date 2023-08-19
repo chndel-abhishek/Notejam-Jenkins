@@ -17,11 +17,11 @@ spec:
         image: postgres:9.4
         env:
           - name: POSTGRES_USER
-            value: abhishek
+            value: postgres
           - name: POSTGRES_PASSWORD
-            value: abhishek
+            value: postgres
           - name: POSTGRES_DB
-            value: abhishek
+            value: postgres
         ports:
         - containerPort: 5432
 
