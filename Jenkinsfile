@@ -63,7 +63,7 @@ pipeline {
 
             }
         }
-        stage("Minikube Service List") {
+        stage("Minikube Service Start") {
 
             steps {
               
