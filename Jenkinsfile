@@ -76,7 +76,7 @@ pipeline {
 
             steps {
               
-                      sh "kubectl --kubeconfig $KUBECONFIG apply -f /var/lib/jenkins/workspace/Notejam-pipeline/Notejam-Jenkins/postgres-deploy.yaml"
+                      sh "kubectl --kubeconfig $KUBECONFIG apply -f /var/lib/jenkins/workspace/Notejam-pipeline/Notejam-Jenkins/postgres-deploy.yml"
                   
             }
         }
@@ -84,7 +84,7 @@ pipeline {
 
             steps {
               
-                      sh "kubectl --kubeconfig $KUBECONFIG apply -f /var/lib/jenkins/workspace/Notejam-pipeline/Notejam-Jenkins/postgres-deploy.yaml"
+                      sh "kubectl --kubeconfig $KUBECONFIG apply -f /var/lib/jenkins/workspace/Notejam-pipeline/Notejam-Jenkins/notejam-application-deploy.yml"
                   
             }
         }
