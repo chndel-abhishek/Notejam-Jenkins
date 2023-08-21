@@ -4,7 +4,7 @@ ENV DockerHOME=/home/app/webapp \
     DB_NAME='postgres' \
     DB_USER='postgres' \
     DB_PASSWORD='postgres' \
-    DB_HOST='postgres-host' \
+    DB_HOST='postgres' \
     DB_PORT='5432'
 WORKDIR /app
 COPY . .
